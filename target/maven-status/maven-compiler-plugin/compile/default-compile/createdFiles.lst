@@ -1,0 +1,8 @@
+com\model\Consumption.class
+com\controller\ConsumptionController.class
+com\controller\UserController.class
+com\model\User.class
+com\model\LoginRequest.class
+com\Application.class
+com\repository\userRepository.class
+com\repository\ConsumptionRepository.class

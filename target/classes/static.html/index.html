@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Fetch Consumption</title>
+</head>
+<body>
+    <h1>Enedis Login</h1>
+    <form id="login-form">
+        <label>Email:
+            <input type="email" id="email" required>
+        </label><br><br>
+        <label>Password:
+            <input type="password" id="password" required>
+        </label><br><br>
+        <button type="submit">Fetch Consumption</button>
+    </form>
+
+    <h3 id="response"></h3>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            fetch(`/consumption?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("response").innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById("response").innerText = "❌ Error: " + error;
+                });
+        });
+    </script>
+</body>
+</html>
